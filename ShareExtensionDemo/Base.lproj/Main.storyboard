@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3z-mP-4kj">
-                                <rect key="frame" x="16" y="604" width="53" height="30"/>
+                                <rect key="frame" x="16" y="604" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Refresh">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,6 +41,7 @@
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="y3z-mP-4kj" secondAttribute="leading" id="2dH-wv-y2y"/>
                             <constraint firstItem="q1M-jM-K6a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="JpG-FG-Kkg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y3z-mP-4kj" secondAttribute="trailing" id="Qo4-kG-BuK"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="q1M-jM-K6a" secondAttribute="bottom" id="gz1-Re-8Si"/>
                             <constraint firstItem="q1M-jM-K6a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="mQS-VV-gUC"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="y3z-mP-4kj" secondAttribute="bottom" constant="33" id="qMo-nh-KG1"/>

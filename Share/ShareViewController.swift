@@ -36,9 +36,7 @@ class ShareViewController: SLComposeServiceViewController {
                         attachment.loadItem(forTypeIdentifier: contentType, options: nil) { data, error in
                             
                             let url = data as! URL
-                            if let imageData = try? Data(contentsOf: url) {
-                                self.saveImage(imageData: imageData)
-                            }
+                            self.copyImageToSharedDir(url: url)
                         }
                     }
                 }
@@ -53,10 +51,26 @@ class ShareViewController: SLComposeServiceViewController {
         return []
     }
     
-    func saveImage(imageData: Data) {
-        if let prefs = UserDefaults(suiteName: suiteName) {
-            prefs.removeObject(forKey: color)
-            prefs.set(imageData, forKey: color)
+    func copyImageToSharedDir(url: URL) {
+        let fileManager = FileManager.default
+        let destPath = fileManager.containerURL(forSecurityApplicationGroupIdentifier: self.suiteName)
+        let fullDestPath = NSURL(fileURLWithPath: (destPath?.path)!).appendingPathComponent("IMG_0003.JPG")
+        
+        if fileManager.fileExists(atPath: (fullDestPath?.path)!) == true {
+            do {
+                try fileManager.removeItem(at: fullDestPath!)
+            }catch{
+                print("\n")
+                print(error)
+            }
         }
+        
+        do{
+            try fileManager.copyItem(atPath: url.path, toPath: (fullDestPath?.path)!)
+        }catch{
+            print("\n")
+            print(error)
+        }
+
     }
 }

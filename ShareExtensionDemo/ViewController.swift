@@ -30,12 +30,12 @@ class ViewController: UIViewController {
   }
   
   func refreshImageSource() {
-    if let prefs = UserDefaults(suiteName: suiteName) {
-      if let imageData = prefs.object(forKey: color) as? Data {
-        DispatchQueue.main.async(execute: { () -> Void in
-          self.imageView.image = UIImage(data: imageData)
-        })
-      }
+    let fileManager = FileManager.default
+    let destPath = fileManager.containerURL(forSecurityApplicationGroupIdentifier: self.suiteName)
+    let fullDestPath = NSURL(fileURLWithPath: (destPath?.path)!).appendingPathComponent("IMG_0003.JPG")
+    
+    if fileManager.fileExists(atPath: (fullDestPath?.path)!) == true {
+        self.imageView.image = UIImage(contentsOfFile: (fullDestPath?.path)!)
     }
   }
 
